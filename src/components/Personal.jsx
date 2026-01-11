@@ -15,9 +15,6 @@ function Personal({ firstName,
     handleGithubChange }) {
 
 
-
-
-
     return (
         <>
             <label >First Name:</label>

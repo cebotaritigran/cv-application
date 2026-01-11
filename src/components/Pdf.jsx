@@ -6,14 +6,17 @@ import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/rendere
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    margin: 30,
+    padding: 30,
     flexDirection: 'cloumn',
     backgroundColor: '#ffffffff',
+    fontSize: 11,
   },
   header: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
+    
   },
   basicInfo: {
     display: 'flex',
@@ -21,6 +24,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
   },
   section: {
     margin: 10,
@@ -29,6 +33,7 @@ const styles = StyleSheet.create({
 
   },
   title: {
+    fontWeight: 'bold',
     fontSize: 24,
   },
   underline: {
@@ -36,6 +41,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     marginBottom: 2,
   },
+
 });
 
 // Create Document Component
@@ -50,16 +56,14 @@ const MyDocument = ({ firstName,
       <View style={styles.header}>
         <Text style={styles.title}>{firstName} {lastName}</Text>
         <View style={styles.basicInfo}>
-          <Text  >{email}</Text>
-          <Text  >{phone}</Text>
-          <Text >{linkedIn}</Text>
+          <Text  >{email} -</Text>
+          <Text  >{phone} -</Text>
+          <Text >{linkedIn} -</Text>
           <Text  >{github}</Text></View>
-
       </View>
       <View style={styles.underline}></View>
       <View style={styles.section}>
-        <Text>Hey</Text>
-
+        
       </View>
     </Page>
   </Document>
