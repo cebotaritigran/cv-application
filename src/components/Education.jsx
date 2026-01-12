@@ -43,7 +43,6 @@ function Education({ educationId,
 
     return (
         <>
-            <h2>Education Component</h2>
             {universityName}
             <button onClick={(e) => handleDeleteEducationList(e, educationId)}>Delete Education</button>
             <button onClick={(e) => handleActivateEdit(e, educationId)}>edit Education</button>
