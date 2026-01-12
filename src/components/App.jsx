@@ -7,6 +7,8 @@ import Header from './Header'
 import Personal from './Personal'
 import Education from "./Education";
 import Experience from './Experience';
+import Projects from './Projects';
+import Skills from "./Skills";
 import { useState } from 'react';
 
 function App() {
@@ -133,8 +135,95 @@ function App() {
       }
     ]);
   }
+  // ***PROJECTS SECTION***
 
+  const [projectsList, setProjectsList] = useState([
+    {
+      projectName: 'Project A',
+      projectDescription: 'software developer',
+      id: crypto.randomUUID()
+    }
+  ]);
 
+  // function to delete projects entry we delete through returning all array without the given id
+  function handleDeleteProjectList(e, projectId) {
+    const id = projectId;
+    let newProjectList = projectsList.filter((project) => project.id !== id);
+    setExperienceList(newProjectList);
+  }
+
+  // function to edit projects entry we get the new values from Education.jsx through props
+  function handleEditProjectList(e,
+    projectId,
+    newProjectName,
+    newProjectDescription
+  ) {
+    setProjectsList(projectsList.map((project) => {
+      if (project.id === projectId) {
+        return {
+          ...project,
+          projectName: newProjectName,
+          projectDescription: newProjectDescription
+        }
+      } else {
+        return project;
+      }
+    }))
+  }
+
+  function handleAddProjectList() {
+    setProjectsList([
+      ...projectsList,
+      {
+        projectName: 'New University',
+        projectDescription: 'Degree',
+        id: crypto.randomUUID()
+      }
+    ]);
+  }
+
+  // ***SKILLS SECTION***
+
+  const [skillsList, setskillsList] = useState([
+    {
+      skillName: 'React',
+      id: crypto.randomUUID()
+    }
+  ]);
+
+  // function to delete skills entry we delete through returning all array without the given id
+  function handleDeleteSkillsList(e, skillId) {
+    const id = skillId;
+    let newSkillsList = skillsList.filter((skill) => skill.id !== id);
+    setskillsList(newSkillsList);
+  }
+
+  // function to edit skills entry we get the new values from Education.jsx through props
+  function handleEditSkillsList(e,
+    skillId,
+    newSkillName
+  ) {
+    setskillsList(skillsList.map((skill) => {
+      if (skill.id === skillId) {
+        return {
+          ...skill,
+          skillName: newSkillName
+        }
+      } else {
+        return skill;
+      }
+    }))
+  }
+
+  function handleAddSkillsList() {
+    setskillsList([
+      ...skillsList,
+      {
+        skillName: 'JS',
+        id: crypto.randomUUID()
+      }
+    ]);
+  }
 
 
   return (
@@ -142,6 +231,7 @@ function App() {
       <div className="app-container">
         <div className='edit-section'>
           <Header />
+          {/* Personal info */}
           <Personal firstName={personalInfo.firstName}
             handleFirstNameChange={(e) => handlePersonalInfoChange(e, "firstName")}
             lastName={personalInfo.lastName}
@@ -155,6 +245,7 @@ function App() {
             github={personalInfo.github}
             handleGithubChange={(e) => handlePersonalInfoChange(e, "github")}>
           </Personal>
+
           {/* Education */}
           <h2>Education</h2>
           {educationList.map((education) => (
@@ -170,6 +261,7 @@ function App() {
           ))
           }
           <button onClick={() => handleAddEducationList()}>Add Education</button>
+
           {/* Experience */}
           <h2>Experience</h2>
           {experienceList.map((experience) => (
@@ -186,6 +278,32 @@ function App() {
           ))
           }
           <button onClick={() => handleAddExperienceList()}>Add Experience</button>
+
+          {/* Projects */}
+          <h2>Projects</h2>
+          {projectsList.map((project) => (
+            < Projects
+              projectId={project.id}
+              projectName={project.projectName}
+              handleDeleteProjectList={handleDeleteProjectList}
+              handleEditProjectList={handleEditProjectList}
+              projectDescription={project.projectDescription}
+              key={project.id} />
+          ))
+          }
+          <button onClick={() => handleAddProjectList()}>Add Experience</button>
+          {/* Skills */}
+          <h2>Skills</h2>
+          {skillsList.map((skill) => (
+            < Skills
+              skillId={skill.id}
+              skillName={skill.skillName}
+              handleDeleteSkillsList={handleDeleteSkillsList}
+              handleEditSkillsList={handleEditSkillsList}
+              key={skill.id} />
+          ))
+          }
+          <button onClick={() => handleAddSkillsList()}>Add Experience</button>
         </div>
         <div className='preview-section'>
           <PDFViewer className='pdf-container'>
