@@ -49,10 +49,15 @@ function Experience({
                 {isEditActive ?
                     <div className='input-container'>
                         {/* name prop is used to set to be edited object */}
+                        <label>Company Name:</label>
                         <input placeholder={experienceData.companyName} name={"companyName"} onChange={handleExperienceDataChange} />
+                        <label>Position:</label>
                         <input placeholder={experienceData.position} name={"position"} onChange={handleExperienceDataChange} />
+                        <label>Job Description:</label>
                         <input placeholder={experienceData.jobDescription} name={"jobDescription"} onChange={handleExperienceDataChange} />
+                        <label>Start Date:</label>
                         <input placeholder={experienceData.startDate} name={"startDate"} onChange={handleExperienceDataChange} />
+                        <label>End Date:</label>
                         <input placeholder={experienceData.endDate} name={"endDate"} onChange={handleExperienceDataChange} />
                         <button onClick={(e) => {
                             handleEditExperienceList(e,

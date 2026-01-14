@@ -41,7 +41,9 @@ function Projects({
                 {isEditActive ?
                     <div className='input-container'>
                         {/* name prop is used to set to be edited object */}
+                        <label>Project Name:</label>
                         <input placeholder={projectData.projectName} name={"projectName"} onChange={handleProjectDataChange} />
+                        <lable>Project Description:</lable>
                         <input placeholder={projectData.projectDescription} name={"projectDescription"} onChange={handleProjectDataChange} />
                         <button onClick={(e) => {
                             handleEditProjectList(e,

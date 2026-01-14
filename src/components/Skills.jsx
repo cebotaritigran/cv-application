@@ -41,6 +41,7 @@ function Projects({
                 {isEditActive ?
                     <div>
                         {/* name prop is used to set to be edited object */}
+                        <lable>Skill Name:</lable>
                         <input placeholder={skillData.skillName} name={"skillName"} onChange={handleSkillDataChange} />
                         <button onClick={(e) => {
                             handleEditSkillsList(e,

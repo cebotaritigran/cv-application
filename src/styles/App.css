@@ -55,3 +55,13 @@ button {
     background-color: white;
     gap: 10px;
 }
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}

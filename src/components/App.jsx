@@ -35,10 +35,10 @@ function App() {
 
   const [educationList, setEducationList] = useState([
     {
-      universityName: 'University A',
-      degree: 'B.Sc. in Computer Science',
-      startDate: '2015',
-      endDate: '2019',
+      universityName: 'State University',
+      degree: 'Bachelor of Science in Computer Science',
+      startDate: 'August 2021',
+      endDate: 'August 2025',
       id: crypto.randomUUID()
     }
   ]);
@@ -82,11 +82,19 @@ function App() {
 
   const [experienceList, setExperienceList] = useState([
     {
-      companyName: 'Company A',
-      position: 'software developer',
-      jobDescription: 'text',
-      startDate: '2019',
-      endDate: '2019',
+      companyName: 'Tech Solutions Inc.',
+      position: 'Software Engineering Intern',
+      jobDescription: 'Contributed to the development of internal web tools using JavaScript and Python to streamline data processing workflows. Collaborated with a small Agile team to implement new features, fix bugs, and write technical documentation to support future development.',
+      startDate: 'June 2024',
+      endDate: 'August 2024',
+      id: crypto.randomUUID()
+    },
+    {
+      companyName: 'Tech Solutions Inc.',
+      position: 'IT Support Assistant ',
+      jobDescription: 'Provided technical support for students and faculty by troubleshooting hardware, software, and network issues. Assisted with system maintenance, account management, and documentation to improve support response times.',
+      startDate: 'September 2022',
+      endDate: 'May 2023',
       id: crypto.randomUUID()
     }
   ]);
@@ -139,10 +147,35 @@ function App() {
 
   const [projectsList, setProjectsList] = useState([
     {
-      projectName: 'Project A',
-      projectDescription: 'software developer',
+      projectName: 'CV Builder Web Application',
+      projectDescription: 'Developed a responsive web application using React that allows users to create, edit, and preview resume content in real time. Implemented a clean, print-ready PDF layout using React PDF for professional output.',
       id: crypto.randomUUID()
-    }
+    },
+    {
+      projectName: 'Task Management Dashboard',
+      projectDescription: 'Built a full-stack task management application with a React frontend and Flask backend. Implemented RESTful APIs for task management and persistent storage.',
+      id: crypto.randomUUID()
+    },
+    {
+      projectName: 'Data Visualization Tool',
+      projectDescription: 'Created an interactive data visualization tool using JavaScript and charting libraries to display trends from large datasets, focusing on usability and performance.',
+      id: crypto.randomUUID()
+    },
+    {
+      projectName: 'API Testing Dashboard',
+      projectDescription: 'Designed and implemented a web-based dashboard for running and visualizing automated API tests. Displays execution status and test results for quick analysis.',
+      id: crypto.randomUUID()
+    },
+    {
+      projectName: 'Personal Portfolio Website',
+      projectDescription: 'Built a responsive portfolio website to showcase projects, skills, and experience. Focused on clean UI design, accessibility, and maintainable components.',
+      id: crypto.randomUUID()
+    },
+    {
+      projectName: 'Restaurant Discovery Application',
+      projectDescription: 'Developed a mobile-friendly application allowing users to explore local restaurants by location and category, with search and map-based features for better user engagement',
+      id: crypto.randomUUID()
+    },
   ]);
 
   // function to delete projects entry we delete through returning all array without the given id
@@ -321,6 +354,10 @@ function App() {
               phone={personalInfo.phone}
               linkedIn={personalInfo.linkedIn}
               github={personalInfo.github}
+              educations={educationList}
+              experiences={experienceList}
+              projects={projectsList}
+              skills={skillsList}
             />
           </PDFViewer>
         </div>

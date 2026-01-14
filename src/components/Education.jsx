@@ -54,9 +54,13 @@ function Education({ educationId,
                 {isEditActive ?
                     <div className='input-container'>
                         {/* name prop is used to set to be edited object */}
+                        <label>University Name:</label>
                         <input placeholder={educationData.universityName} name={"universityName"} onChange={handleEducationDataChange} />
+                        <label>Degree:</label>
                         <input placeholder={educationData.degree} name={"degree"} onChange={handleEducationDataChange} />
+                        <label>Start Date:</label>
                         <input placeholder={educationData.startDate} name={"startDate"} onChange={handleEducationDataChange} />
+                        <label>Start Date:</label>
                         <input placeholder={educationData.endDate} name={"endDate"} onChange={handleEducationDataChange} />
                         <button className='edit-delete' onClick={(e) => {
 
