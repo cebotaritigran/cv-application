@@ -3,7 +3,7 @@
 A modern **CV / Resume Generator** built with **React** and **Vite** that allows users to quickly create, preview, and export a professional CV through an intuitive web interface.
 
 🚀 **Live Demo:**  
-https://tigran-cv-application-eudxh17wo-cebotaritigrans-projects.vercel.app/
+[https://tigran-cv-application-eudxh17wo-cebotaritigrans-projects.vercel.app/](https://cv-application-generator-tc.netlify.app/)
 
 ---
 
