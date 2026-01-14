@@ -232,78 +232,85 @@ function App() {
         <div className='edit-section'>
           <Header />
           {/* Personal info */}
-          <Personal firstName={personalInfo.firstName}
-            handleFirstNameChange={(e) => handlePersonalInfoChange(e, "firstName")}
-            lastName={personalInfo.lastName}
-            handleLastNameChange={(e) => handlePersonalInfoChange(e, "lastName")}
-            email={personalInfo.email}
-            handleEmailChange={(e) => handlePersonalInfoChange(e, "email")}
-            phone={personalInfo.phone}
-            handlePhoneChange={(e) => handlePersonalInfoChange(e, "phone")}
-            linkedIn={personalInfo.linkedIn}
-            handleLinkedInChange={(e) => handlePersonalInfoChange(e, "linkedIn")}
-            github={personalInfo.github}
-            handleGithubChange={(e) => handlePersonalInfoChange(e, "github")}>
-          </Personal>
-
+          <div className='section'>
+            <Personal firstName={personalInfo.firstName}
+              handleFirstNameChange={(e) => handlePersonalInfoChange(e, "firstName")}
+              lastName={personalInfo.lastName}
+              handleLastNameChange={(e) => handlePersonalInfoChange(e, "lastName")}
+              email={personalInfo.email}
+              handleEmailChange={(e) => handlePersonalInfoChange(e, "email")}
+              phone={personalInfo.phone}
+              handlePhoneChange={(e) => handlePersonalInfoChange(e, "phone")}
+              linkedIn={personalInfo.linkedIn}
+              handleLinkedInChange={(e) => handlePersonalInfoChange(e, "linkedIn")}
+              github={personalInfo.github}
+              handleGithubChange={(e) => handlePersonalInfoChange(e, "github")}>
+            </Personal>
+          </div>
           {/* Education */}
-          <h2>Education</h2>
-          {educationList.map((education) => (
-            < Education
-              educationId={education.id}
-              universityName={education.universityName}
-              handleDeleteEducationList={handleDeleteEducationList}
-              handleEditEducationList={handleEditEducationList}
-              educationDegree={education.degree}
-              educationStartDate={education.startDate}
-              educationEndDate={education.endDate}
-              key={education.id} />
-          ))
-          }
-          <button onClick={() => handleAddEducationList()}>Add Education</button>
-
+          <div className='section'>
+            <h2>Education</h2>
+            {educationList.map((education) => (
+              < Education
+                educationId={education.id}
+                universityName={education.universityName}
+                handleDeleteEducationList={handleDeleteEducationList}
+                handleEditEducationList={handleEditEducationList}
+                educationDegree={education.degree}
+                educationStartDate={education.startDate}
+                educationEndDate={education.endDate}
+                key={education.id} />
+            ))
+            }
+            <button onClick={() => handleAddEducationList()}>Add Education</button>
+          </div>
           {/* Experience */}
-          <h2>Experience</h2>
-          {experienceList.map((experience) => (
-            < Experience
-              experienceId={experience.id}
-              companyName={experience.companyName}
-              handleDeleteExperienceList={handleDeleteExperienceList}
-              handleEditExperienceList={handleEditExperienceList}
-              experiencePosition={experience.position}
-              experienceJobDescription={experience.jobDescription}
-              experienceStartDate={experience.startDate}
-              experienceEndDate={experience.endDate}
-              key={experience.id} />
-          ))
-          }
-          <button onClick={() => handleAddExperienceList()}>Add Experience</button>
-
+          <div className='section'>
+            <h2>Experience</h2>
+            {experienceList.map((experience) => (
+              < Experience
+                experienceId={experience.id}
+                companyName={experience.companyName}
+                handleDeleteExperienceList={handleDeleteExperienceList}
+                handleEditExperienceList={handleEditExperienceList}
+                experiencePosition={experience.position}
+                experienceJobDescription={experience.jobDescription}
+                experienceStartDate={experience.startDate}
+                experienceEndDate={experience.endDate}
+                key={experience.id} />
+            ))
+            }
+            <button onClick={() => handleAddExperienceList()}>Add Experience</button>
+          </div>
           {/* Projects */}
-          <h2>Projects</h2>
-          {projectsList.map((project) => (
-            < Projects
-              projectId={project.id}
-              projectName={project.projectName}
-              handleDeleteProjectList={handleDeleteProjectList}
-              handleEditProjectList={handleEditProjectList}
-              projectDescription={project.projectDescription}
-              key={project.id} />
-          ))
-          }
-          <button onClick={() => handleAddProjectList()}>Add Experience</button>
+          <div className='section'>
+            <h2>Projects</h2>
+            {projectsList.map((project) => (
+              < Projects
+                projectId={project.id}
+                projectName={project.projectName}
+                handleDeleteProjectList={handleDeleteProjectList}
+                handleEditProjectList={handleEditProjectList}
+                projectDescription={project.projectDescription}
+                key={project.id} />
+            ))
+            }
+            <button onClick={() => handleAddProjectList()}>Add Experience</button>
+          </div>
           {/* Skills */}
-          <h2>Skills</h2>
-          {skillsList.map((skill) => (
-            < Skills
-              skillId={skill.id}
-              skillName={skill.skillName}
-              handleDeleteSkillsList={handleDeleteSkillsList}
-              handleEditSkillsList={handleEditSkillsList}
-              key={skill.id} />
-          ))
-          }
-          <button onClick={() => handleAddSkillsList()}>Add Experience</button>
+          <div className='section'>
+            <h2>Skills</h2>
+            {skillsList.map((skill) => (
+              < Skills
+                skillId={skill.id}
+                skillName={skill.skillName}
+                handleDeleteSkillsList={handleDeleteSkillsList}
+                handleEditSkillsList={handleEditSkillsList}
+                key={skill.id} />
+            ))
+            }
+            <button onClick={() => handleAddSkillsList()}>Add Experience</button>
+          </div>
         </div>
         <div className='preview-section'>
           <PDFViewer className='pdf-container'>

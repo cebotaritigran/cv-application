@@ -32,24 +32,28 @@ function Projects({
     }
     return (
         <>
-            <div>{projectName}</div>
-
-            <button onClick={(e) => handleDeleteProjectList(e, projectId)}>Delete Project</button>
-            <button onClick={(e) => handleActivateEdit(e, projectId)}>edit Project</button>
-            {isEditActive ?
-                <div>
-                    {/* name prop is used to set to be edited object */}
-                    <input placeholder={projectData.projectName} name={"projectName"} onChange={handleProjectDataChange} />
-                    <input placeholder={projectData.projectDescription} name={"projectDescription"} onChange={handleProjectDataChange} />
-
-                    <button onClick={(e) => handleEditProjectList(e,
-                        projectId,
-                        projectData.companyName,
-                        projectData.position,
-                    )}>edit Project</button>
-                </div> : null
-            }
-
+            <div className='section-container '>
+                {!isEditActive ? <div className='initial-container'>
+                    <div className='name-container'>{projectName}</div>
+                    <button className='edit-delete' onClick={(e) => handleDeleteProjectList(e, projectId)}>Delete</button>
+                    <button className='edit-delete' onClick={(e) => handleActivateEdit(e, projectId)}>{isEditActive ? "Close Edit" : "Open Edit"}</button>
+                </div> : null}
+                {isEditActive ?
+                    <div className='input-container'>
+                        {/* name prop is used to set to be edited object */}
+                        <input placeholder={projectData.projectName} name={"projectName"} onChange={handleProjectDataChange} />
+                        <input placeholder={projectData.projectDescription} name={"projectDescription"} onChange={handleProjectDataChange} />
+                        <button onClick={(e) => {
+                            handleEditProjectList(e,
+                                projectId,
+                                projectData.projectName,
+                                projectData.projectDescription,
+                            )
+                            handleActivateEdit()
+                        }}>Edit Project</button>
+                    </div> : null
+                }
+            </div>
         </>
     )
 }

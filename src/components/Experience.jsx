@@ -40,27 +40,33 @@ function Experience({
 
     return (
         <>
-            <div>{companyName}</div>
-
-            <button onClick={(e) => handleDeleteExperienceList(e, experienceId)}>Delete Experience</button>
-            <button onClick={(e) => handleActivateEdit(e, experienceId)}>edit Experience</button>
-            {isEditActive ?
-                <div>
-                    {/* name prop is used to set to be edited object */}
-                    <input placeholder={experienceData.companyName} name={"companyName"} onChange={handleExperienceDataChange} />
-                    <input placeholder={experienceData.position} name={"position"} onChange={handleExperienceDataChange} />
-                    <input placeholder={experienceData.jobDescription} name={"jobDescription"} onChange={handleExperienceDataChange} />
-                    <input placeholder={experienceData.startDate} name={"startDate"} onChange={handleExperienceDataChange} />
-                    <input placeholder={experienceData.endDate} name={"endDate"} onChange={handleExperienceDataChange} />
-                    <button onClick={(e) => handleEditExperienceList(e,
-                        experienceId,
-                        experienceData.companyName,
-                        experienceData.position,
-                        experienceData.jobDescription,
-                        experienceData.startDate,
-                        experienceData.endDate)}>edit Experience</button>
-                </div> : null
-            }
+            <div className='section-container '>
+                {!isEditActive ? <div className='initial-container'>
+                    <div className='name-container'>{companyName}</div>
+                    <button className='edit-delete' onClick={(e) => handleDeleteExperienceList(e, experienceId)}>Delete</button>
+                    <button className='edit-delete' onClick={(e) => handleActivateEdit(e, experienceId)}>{isEditActive ? "Close Edit" : "Open Edit"}</button>
+                </div> : null}
+                {isEditActive ?
+                    <div className='input-container'>
+                        {/* name prop is used to set to be edited object */}
+                        <input placeholder={experienceData.companyName} name={"companyName"} onChange={handleExperienceDataChange} />
+                        <input placeholder={experienceData.position} name={"position"} onChange={handleExperienceDataChange} />
+                        <input placeholder={experienceData.jobDescription} name={"jobDescription"} onChange={handleExperienceDataChange} />
+                        <input placeholder={experienceData.startDate} name={"startDate"} onChange={handleExperienceDataChange} />
+                        <input placeholder={experienceData.endDate} name={"endDate"} onChange={handleExperienceDataChange} />
+                        <button onClick={(e) => {
+                            handleEditExperienceList(e,
+                                experienceId,
+                                experienceData.companyName,
+                                experienceData.position,
+                                experienceData.jobDescription,
+                                experienceData.startDate,
+                                experienceData.endDate)
+                            handleActivateEdit()
+                        }}>Edit Experience</button>
+                    </div> : null
+                }
+            </div>
         </>
     )
 }

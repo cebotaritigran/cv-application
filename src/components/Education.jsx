@@ -43,24 +43,34 @@ function Education({ educationId,
 
     return (
         <>
-            {universityName}
-            <button onClick={(e) => handleDeleteEducationList(e, educationId)}>Delete Education</button>
-            <button onClick={(e) => handleActivateEdit(e, educationId)}>edit Education</button>
-            {isEditActive ?
-                <div>
-                    {/* name prop is used to set to be edited object */}
-                    <input placeholder={educationData.universityName} name={"universityName"} onChange={handleEducationDataChange} />
-                    <input placeholder={educationData.degree} name={"degree"} onChange={handleEducationDataChange} />
-                    <input placeholder={educationData.startDate} name={"startDate"} onChange={handleEducationDataChange} />
-                    <input placeholder={educationData.endDate} name={"endDate"} onChange={handleEducationDataChange} />
-                    <button onClick={(e) => handleEditEducationList(e,
-                        educationId,
-                        educationData.universityName,
-                        educationData.degree,
-                        educationData.startDate,
-                        educationData.endDate)}>edit Education</button>
-                </div> : null
-            }
+            <div className='section-container '>
+                {!isEditActive ?
+                    <div className='initial-container'>
+                        <div className='name-container'>{universityName}</div>
+                        <button className='edit-delete' onClick={(e) => handleDeleteEducationList(e, educationId)}>Delete</button>
+                        <button className='edit-delete' onClick={(e) => handleActivateEdit(e, educationId)}>{isEditActive ? "Close Edit" : "Open Edit"}</button>
+                    </div> : null}
+
+                {isEditActive ?
+                    <div className='input-container'>
+                        {/* name prop is used to set to be edited object */}
+                        <input placeholder={educationData.universityName} name={"universityName"} onChange={handleEducationDataChange} />
+                        <input placeholder={educationData.degree} name={"degree"} onChange={handleEducationDataChange} />
+                        <input placeholder={educationData.startDate} name={"startDate"} onChange={handleEducationDataChange} />
+                        <input placeholder={educationData.endDate} name={"endDate"} onChange={handleEducationDataChange} />
+                        <button className='edit-delete' onClick={(e) => {
+
+                            handleEditEducationList(e,
+                                educationId,
+                                educationData.universityName,
+                                educationData.degree,
+                                educationData.startDate,
+                                educationData.endDate)
+                            handleActivateEdit()
+                        }}>Edit Education</button>
+                    </div> : null
+                }
+            </div>
         </>
     )
 }
