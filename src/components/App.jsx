@@ -182,7 +182,7 @@ function App() {
   function handleDeleteProjectList(e, projectId) {
     const id = projectId;
     let newProjectList = projectsList.filter((project) => project.id !== id);
-    setExperienceList(newProjectList);
+    setProjectsList(newProjectList);
   }
 
   // function to edit projects entry we get the new values from Education.jsx through props
